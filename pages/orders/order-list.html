@@ -50,13 +50,13 @@
                                             <button class="btn btn-block btn-sm btn-info" data-toggle="modal" data-target="#myModal" ng-click="vm.show(s.id)" style="width:100%">View</button>
                                         </td>
                                         <td>
-                                            <button ng-disabled="s.status != 'pending'" class="btn btn-block btn-sm btn-success" ng-click="order(s.id,'accepted')" style="width:100%">Accept</button>
+                                            <button ng-disabled="s.status != 'pending'" class="btn btn-block btn-sm btn-success" ng-click="vm.order(s.id,'accepted')" style="width:100%">Accept</button>
                                         </td>
                                         <td>
-                                            <button ng-disabled="s.status != 'accepted'" class="btn btn-block btn-sm btn-info" ng-click="order(s.id,'collected')" style="width:100%">Collect</button>
+                                            <button ng-disabled="s.status != 'accepted'" class="btn btn-block btn-sm btn-info" ng-click="vm.order(s.id,'collected')" style="width:100%">Collect</button>
                                         </td>
                                         <td>
-                                            <button ng-disabled="s.status != 'pending'" class="btn btn-block btn-sm btn-danger" ng-click="order(s.id,'rejected')" style="width:100%">Reject</button>
+                                            <button ng-disabled="s.status != 'pending'" class="btn btn-block btn-sm btn-danger" ng-click="vm.order(s.id,'rejected')" style="width:100%">Reject</button>
                                         </td>
                                     </tr>
                                 </tbody>

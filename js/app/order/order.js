@@ -13,7 +13,7 @@
 
         vm.orderD = [];
 
-        vm.show = show;
+        vm.order = show;
         vm.update = update;
 
         function construct() {

@@ -1,6 +1,4 @@
 /**
- * NEUBOARD - Responsive Admin Theme
- * Copyright 2014 Authentic Goods Co. http://authenticgoods.co
  *
  * TABLE OF CONTENTS
  * Use @ along with function name to search for the directive.
