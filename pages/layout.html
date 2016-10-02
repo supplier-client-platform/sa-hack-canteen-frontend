@@ -1,0 +1,18 @@
+<section id="main-wrapper" class="theme-blue-full">
+    <!-- Page wrapper -->
+    <header id="header" ng-include="'views/header.html'"></header>
+    <!-- Left Sidebar Navigation -->
+    <!--  <aside class="sidebar sidebar-left" ng-include="'views/left-sidebar.html'"></aside> -->
+    <!-- Content wraper class="anim-in-out anim-zoom-out-full" data-anim-speed="200" -->
+<aside ng-include="'views/left-sidebar.html'" id="sidebar-right"></aside>
+    <section ng-class="loginInd==0?'':'main-content-wrapper'">
+        <!-- Main content view  -->
+
+        <div ui-view name="content"></div>
+        <!-- Footer -->
+        <div ng-include="'views/footer.html'"></div>
+    </section>
+    <!-- /Content wraper-->
+</section>
+<!-- /Page wrapper-->
+<!-- Right Sidebar Navigation -->

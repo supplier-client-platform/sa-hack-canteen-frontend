@@ -1,0 +1,31 @@
+<!--logo start-->
+<div ng-controller="navController as nav">
+    <div class="brand">
+        <a class="logo">
+            <span>SLIIT </span>CANTEEN</a>
+    </div>
+    <!--logo end-->
+    <ul class="nav navbar-nav navbar-left" ng-controller="navController as nav">
+
+        <li class="  "  > <a href="" class="options " ui-sref="layout.product" ui-sref-active="active">
+        PRODUCTS
+        </a></li>
+
+        <li class="  "> <a href="" class="options " ui-sref="layout.order" ui-sref-active="active">
+         ORDERS
+        </a></li>
+
+
+
+
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="  ">
+            <a href="" class="options" ng-click="logoutFunct()">
+                <i class="fa fa-user"></i> &nbsp;LOGOUT
+            </a>
+        </li>
+        <!-- <li class="toggle-navigation toggle-right" toggle-right-sidebar></li> -->
+    </ul>
+</div>
