@@ -2,10 +2,10 @@
     'use strict';
 
     angular.module('coreApp')
-        .controller('ProductController', ProductController);
+        .controller('ReportController', ReportController);
 
-    function ProductController($scope, REST, $rootScope, $http, $state, $timeout, $document, DTOptionsBuilder, ngGPlacesAPI, $uibModal, $log, BootsrapService, $stateParams, $filter, CommonService, ngToast, $base64) {
-        console.log("prodcut called");
+    function ReportController($scope, REST, $rootScope, $http, $state, $timeout, $document, DTOptionsBuilder, ngGPlacesAPI, $uibModal, $log, BootsrapService, $stateParams, $filter, CommonService, ngToast, $base64) {
+        console.log("report called");
 
         var vm = this;
 

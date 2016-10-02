@@ -34,6 +34,16 @@ function config($stateProvider, $urlRouterProvider, ngGPlacesAPIProvider, $httpP
                 }
             }
         })
+        .state("layout.reports", {
+            url: '/product',
+            abstract: false,
+            views: {
+                "content": {
+                    templateUrl: 'pages/reports/report.html',
+                    controller: 'ReportController as vm'
+                }
+            }
+        })
         .state("layout.order", {
             url: '/orders',
             abstract: false,
@@ -65,24 +75,24 @@ function config($stateProvider, $urlRouterProvider, ngGPlacesAPIProvider, $httpP
 
     });
 
-    $httpProvider.defaults.useXDomain = true;
-    $httpProvider.defaults.withCredentials = true;
-    delete $httpProvider.defaults.headers.common["X-Requested-With"];
-    $httpProvider.defaults.headers.common["Accept"] = "application/json";
-    $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
+    // $httpProvider.defaults.useXDomain = true;
+    // $httpProvider.defaults.withCredentials = true;
+    // delete $httpProvider.defaults.headers.common["X-Requested-With"];
+    // $httpProvider.defaults.headers.common["Accept"] = "application/json";
+    // $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
 
 
 
-    $httpProvider.defaults.useXDomain = true;
-    delete $httpProvider.defaults.headers.common['X-Requested-With'];
-    $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-    /*
-    $httpProvider.defaults.headers.common = {};
-    $httpProvider.defaults.headers.post = {};
-    $httpProvider.defaults.headers.put = {};
-    $httpProvider.defaults.headers.patch = {};
+    // // $httpProvider.defaults.useXDomain = true;
+    // // delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    // // $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+    // // /*
+    // $httpProvider.defaults.headers.common = {};
+    // $httpProvider.defaults.headers.post = {};
+    // $httpProvider.defaults.headers.put = {};
+    // $httpProvider.defaults.headers.patch = {};
 
-*/
+
 
     $mdThemingProvider.theme('default')
         .primaryPalette('blue')
@@ -105,7 +115,6 @@ angular
         $rootScope.loginInd = 0;
         $rootScope.userId = "";
         $rootScope.auth = "";
-        //$base64.encode('ANURANGA:SRILANKAN');
         console.log("auth", $rootScope.auth);
 
 

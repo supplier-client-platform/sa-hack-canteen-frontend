@@ -1,6 +1,7 @@
 <section class="main-content-wrapper">
     <div class="pageheader">
-        <h2>Product List <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal">
+        <h2>Product List <button ng-click="vm.editStatusEvent()" type="button" class="btn btn-success btn-sm" data-toggle="modal"
+                data-target="#myModal">
   Add New
 </button></h2>
 
@@ -13,6 +14,7 @@
             </ol>
         </div>
     </div>
+
     <section id="main-content">
         <div class="row">
             <div class="col-md-1"></div>
@@ -35,20 +37,24 @@
                                         <th ng-class="''">Product Name</th>
                                         <th ng-class="''">Price</th>
 
-                                        <th ng-class="''">Edit</th>
-                                        <th ng-class="''">Remove</th>
+                                        <th ng-class="''" style="width:50px"> </th>
+                                        <th ng-class="''" style="width:50px"> </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr ng-repeat="s in productList">
+                                    <tr ng-repeat="s in vm.products">
                                         <td>{{s.id}}</td>
 
-                                        <td>{{s.product_name}}</td>
+                                        <td>{{s.name}}</td>
                                         <td>
-                                            <button class="btn btn-block btn-sm btn-success" ng-click="policyView($index)" style="width:100%">View</button>
+                                            <div ng-if="s.price == 0">FREE </div>
+                                            <div ng-if="s.price != 0">{{s.price | currency:"Rs."}} </div>
                                         </td>
                                         <td>
-                                            <button class="btn btn-block btn-sm btn-success" ng-click="policyView($index)" style="width:100%">View</button>
+                                            <button class="btn btn-block btn-sm btn-info" data-toggle="modal" data-target="#myModal" ng-click="vm.edit(s)" style="width:100%">Edit</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-block btn-sm btn-danger" ng-click="vm.remove(s.id)" style="width:100%">Remove</button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -69,7 +75,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title">{{title}}</h4>
             </div>
-            <form class="form-horizontal form-border" name="product" novalidate angular-validator angular-validator-submit='productUpdate()'
+            <form class="form-horizontal form-border" name="product" novalidate angular-validator angular-validator-submit='vm.add()'
                 autocomplete="off">
 
                 <div class="modal-body">
@@ -77,7 +83,7 @@
                     <div class="row">
                         <div class="col-md-offset-4 col-md-4">
 
-                            <img class="img responsive thumbnail" ng-src="http://vignette3.wikia.nocookie.net/galaxylife/images/7/7c/Noimage.png/revision/latest?cb=20120622041841">
+                            <img class="img responsive thumbnail" ng-src="{{product.img_url}}">
                         </div>
                     </div>
 
@@ -86,7 +92,7 @@
                             <label class="pull-right  ">Image Url</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control input-sm" name="image" ng-model="product.img" required>
+                            <input type="text" class="form-control input-sm" name="image" ng-model="product.img_url" required>
                         </div>
                     </div>
 
@@ -103,7 +109,8 @@
                             <label class="pull-right  ">Product Price</label>
                         </div>
                         <div class="col-md-8">
-                            <input type="text" class="form-control input-sm" name="price" ng-model="product.amount" required>
+                            <input type="text" invalid-message="'Please enter a valid price'" class="form-control input-sm" ng-pattern="/^-?\d*(\.\d+)?$/"
+                                name="price" ng-model="product.price" required>
                         </div>
                     </div>
 
